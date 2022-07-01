@@ -5,6 +5,7 @@
     "module": "esnext",
     "lib": ["dom", "esnext"],
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "sourceMap": true,
     "strict": true,
     "allowJs": true,

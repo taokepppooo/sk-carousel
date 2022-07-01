@@ -1,25 +1,36 @@
-// export type SKNodesType = {
-//   root: HTMLElement
-//   container?: HTMLElement
-//   slides?: HTMLElement[]
-// }
+import { SKOptionsType } from './Options'
 
-// export type SKCarouselType = {}
+export type SKNodesType = {
+  root: HTMLElement
+  container?: HTMLElement
+  slides?: HTMLElement[]
+}
 
-// function SKCarousel(nodes: HTMLElement | EmblaNodesType): SKCarouselType {
-//   let root: HTMLElement
-//   let container: HTMLElement
-//   let slides: HTMLElement[]
+export type SKCarouselType = {}
 
-//   function storeElements(): void {
-//     const providedContainer = 'container' in nodes && nodes.container
-//     const providedSlides = 'slides' in nodes && nodes.slides
+function SKCarousel(
+  nodes: HTMLElement | SKNodesType,
+  options: SKOptionsType
+): SKCarouselType {
+  let root: HTMLElement
+  let container: HTMLElement
+  let slides: HTMLElement[]
 
-//     root = 'root' in nodes ? nodes.root : nodes
-//     container = providedContainer || <HTMLElement>root.children[0]
-//     slides = providedSlides || [].slice.call(container.children)
-//   }
-// }
+  function storeElements(): void {
+    const providedContainer = 'container' in nodes && nodes.container
+    const providedSlides = 'slides' in nodes && nodes.slides
 
-// export default SKCarousel
-export default {}
+    root = 'root' in nodes ? nodes.root : nodes
+    container = providedContainer || <HTMLElement>root.children[0]
+    slides = providedSlides || [].slice.call(container.children)
+  }
+
+  function activate(options: SKOptionsType): void {
+    storeElements()
+  }
+
+  const carouselType: SKCarouselType = {}
+  return carouselType
+}
+
+export default SKCarousel
