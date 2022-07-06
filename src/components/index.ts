@@ -1,4 +1,5 @@
-import { SKOptionsType } from './Options'
+import type { SKOptionsType } from './Options.js'
+import { defaultOptions } from './Options.js'
 
 export type SKNodesType = {
   root: HTMLElement
@@ -17,18 +18,22 @@ function SKCarousel(
   let slides: HTMLElement[]
 
   function storeElements(): void {
-    const providedContainer = 'container' in nodes && nodes.container
-    const providedSlides = 'slides' in nodes && nodes.slides
+    const customContainer = 'container' in nodes && nodes.container
+    const customSlides = 'slides' in nodes && nodes.slides
 
     root = 'root' in nodes ? nodes.root : nodes
-    container = providedContainer || <HTMLElement>root.children[0]
-    slides = providedSlides || [].slice.call(container.children)
+    container = customContainer || <HTMLElement>root.children[0]
+    slides = customSlides || [].slice.call(container.children)
+    console.log(slides)
   }
 
   function activate(options: SKOptionsType): void {
     storeElements()
+    console.log(defaultOptions)
+    console.log(options)
   }
 
+  activate(options)
   const carouselType: SKCarouselType = {}
   return carouselType
 }

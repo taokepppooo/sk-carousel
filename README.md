@@ -1,3 +1,3 @@
 # 编译 ts
 
-`npx tsc index.ts`
+`npx tsc --module esnext index.ts --skipLibCheck`

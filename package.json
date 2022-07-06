@@ -4,6 +4,7 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "jest --config jest.config.js",
+    "tsc": "npx tsc src/components/index.ts --skipLibCheck --module esnext",
     "format": "prettier . --write",
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx --max-warnings 0 && pretty-quick --check --branch dev",
     "lint:fix": "eslint . --fix --ext .js,.ts,.jsx,.tsx --max-warnings 0  && pretty-quick --branch dev",

@@ -14,7 +14,7 @@ module.exports = {
   ],
   rules: {
     'no-debugger': 2,
-    'no-console': 2,
+    // 'no-console': 2,
     '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/ban-types': [
