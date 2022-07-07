@@ -1,11 +1,8 @@
-import type { SKOptionsType } from './Options'
-import { defaultOptions } from './Options'
-
-export type SKNodesType = {
-  root: HTMLElement
-  container?: HTMLElement
-  slides?: HTMLElement[]
-}
+import type { SKOptionsType } from './options'
+import { defaultOptions } from './options'
+import Renderer from './rederer'
+import { objectsMergeDeep } from '../utils'
+import type { SKNodesType } from './types'
 
 export type SKCarouselType = {}
 
@@ -16,6 +13,7 @@ function SKCarousel(
   let root: HTMLElement
   let container: HTMLElement
   let slides: HTMLElement[]
+  let baseOptions: SKOptionsType
 
   function storeElements(): void {
     const customContainer = 'container' in nodes && nodes.container
@@ -24,13 +22,14 @@ function SKCarousel(
     root = 'root' in nodes ? nodes.root : nodes
     container = customContainer || <HTMLElement>root.children[0]
     slides = customSlides || [].slice.call(container.children)
-    console.log(slides)
   }
 
   function activate(options: SKOptionsType): void {
     storeElements()
-    console.log(defaultOptions)
-    console.log(options)
+
+    baseOptions = objectsMergeDeep(defaultOptions, options)
+
+    Renderer({ root, container, slides }, baseOptions)
   }
 
   activate(options)
