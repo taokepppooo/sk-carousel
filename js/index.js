@@ -1,4 +1,4 @@
-import SKCarousel from '../components/index.js'
+import SKCarousel from '../build/esm/sk-carousel.esm.js'
 
 const root = document.getElementById('main-carousel')
 const container = document.getElementById('embla__container')

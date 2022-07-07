@@ -4,7 +4,9 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "jest --config jest.config.js",
-    "tsc": "npx tsc src/components/index.ts --skipLibCheck --module esnext",
+    "build:rollup": "rollup -c",
+    "build:esbuild": "esbuild src/index.ts --bundle --outfile=build/index.js",
+    "tsc": "npx tsc src/index.ts --skipLibCheck --module esnext",
     "format": "prettier . --write",
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx --max-warnings 0 && pretty-quick --check --branch dev",
     "lint:fix": "eslint . --fix --ext .js,.ts,.jsx,.tsx --max-warnings 0  && pretty-quick --branch dev",
@@ -36,6 +38,7 @@
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@commitlint/cz-commitlint": "^17.0.3",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/jest": "^28.1.4",
     "@typescript-eslint/eslint-plugin": "^5.30.0",
     "@typescript-eslint/parser": "^5.30.0",
@@ -51,6 +54,9 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "pretty-quick": "^3.1.3",
+    "rollup": "^2.75.7",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.32.1",
     "ts-jest": "^28.0.5",
     "typescript": "^4.7.4"
   }

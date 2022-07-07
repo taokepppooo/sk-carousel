@@ -1,5 +1,5 @@
-import type { SKOptionsType } from './Options.js'
-import { defaultOptions } from './Options.js'
+import type { SKOptionsType } from './Options'
+import { defaultOptions } from './Options'
 
 export type SKNodesType = {
   root: HTMLElement

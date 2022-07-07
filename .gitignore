@@ -1,4 +1,6 @@
 .history
 node_modules
 
-src/components/**/*.js
+build/cjs
+build/esm
+build/umd
